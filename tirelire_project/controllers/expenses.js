@@ -26,11 +26,10 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    Expense.findById(req.params.id)
-    .exec(function(err, expenses) {
+    Expense.findById(req.params.id, function(err, expense) {
         res.render('expenses/show', {
             user: req.user,
-            expenses,
+            expense,
             title: "Details"
         });
     });
