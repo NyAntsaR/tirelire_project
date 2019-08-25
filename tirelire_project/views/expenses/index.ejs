@@ -1,20 +1,22 @@
 <%- include('../partials/header') %>
-<nav>
-        <a href="/expenses" <%- title === 'Expenses List' ? 'class="active"' : '' %>>Expense List</a>
-</nav>
 <table id="list">
     <thead>
         <tr>
-        <th>Store</th>
+            <th>Store</th>
+            <th>Date</th>
+            <th>Amount</th>
         </tr>
     </thead>
+
     <tbody>
-        <% expenses.forEach(function(m) { %>
-        <tr>
-            <td><%= m.store %></td>
-        </tr>
-        <% }); %>
+        <% expenses.forEach(function(exp) { %>
+              <tr>
+                  <td><%= exp.store %></td>
+                  <td><%= exp.date %></td>
+                  <td><%= exp.amount %></td>
+                  <td><a href="/expenses/<%= exp._id %>">DETAILS</a></td>
+              </tr>
+          <% }); %>
         </tbody>
-    </table>
-        
+    </table>     
 <%- include('../partials/footer') %>

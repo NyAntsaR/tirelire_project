@@ -13,6 +13,7 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var expensesRouter = require('./routes/expenses');
 
 var app = express();
 
@@ -25,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
-  secret: 'SEIRocks!',
+  secret: 'Tirelire!',
   resave: false,
   saveUninitialized: true
 }));
@@ -34,7 +35,9 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
+app.use('/expenses', expensesRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

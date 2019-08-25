@@ -1,18 +1,15 @@
-var router = require('expresse').Router();
+var router = require('express').Router();
 var expensesCtrl = require('../controllers/expenses');
 
 // GET /expenses
-router.get('/expenses', expensesCtrl.index);
+router.get('/', isLoggedIn, expensesCtrl.index);
+router.get('/new', isLoggedIn, expensesCtrl.new);
+router.get('/:id', isLoggedIn, expensesCtrl.show);
+router.post('/', isLoggedIn, expensesCtrl.create);
 
-router.get('/users', isLoggedIn, function(req, res){
-    if (req.isAuthenticated() ) return next();
-    res.redirect('/auth/google');
-    res.render('expenses', {
-      user: req.user,
-      expenses: [],
-      title: 'tirelire',
-    })
-})
-
+function isLoggedIn(req, res, next) {
+  if ( req.isAuthenticated() ) return next();
+  res.redirect('/auth/google');
+}
 
 module.exports = router;

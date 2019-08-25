@@ -5,8 +5,23 @@ var expenseSchema = new Schema({
     store: {
         type: String,
         require: true
-    }
-    
-})
+    },
+    date: {
+        type: Date,
+        require: true
+    },
+    amount: {
+        type: Number,
+        require: true
+    } 
+    // category: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Category'
+    // },
+    // comment: {
+    //     type: String,
+    // }
+});
 
-module.exports = mongoose.model('Expense', expenseSchema);
+const Expense = mongoose.model('Expense', expenseSchema);
+module.exports = Expense;

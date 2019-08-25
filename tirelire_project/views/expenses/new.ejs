@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/expenses" method="POST">
+  <label>Store:</label>
+  <input type="text" name="store">
+  <label>Date:</label>
+  <input type="date" name="date">
+  <label>Amount:</label>
+  <input type="number" name="amount">
+  <!-- <label>Category:</label>
+  <input>
+  <label>Comment</label>
+  <input type="text" name="category"> -->
+
+  <input type="submit" value="Add Expense">
+</form>
+
+<%- include('../partials/footer') %>

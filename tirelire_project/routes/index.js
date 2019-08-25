@@ -3,11 +3,9 @@ var passport = require('passport');
 
 // The root route renders our only view
 router.get('/', function(req, res) {
-  console.log("when callend")
-  // console.log(req.)
+  console.log('index')
   res.redirect('/users');
 });
-
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
@@ -15,12 +13,11 @@ router.get('/auth/google', passport.authenticate(
   { scope: ['profile', 'email'] }
 ));
 
-
 // Google OAuth callback route
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/users',
+    successRedirect : '/expenses',
     failureRedirect : '/users'
   }
 ));
@@ -31,25 +28,28 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
+// //OAut authenticated
+// router.get('/expenses', function(req, res){
+//   if (req.isAuthenticated()) {
 
-router.get('/users', function(req, res){
-  if (req.isAuthenticated()) {
-    console.log(req.user.name)
-    // res.redirect('/expenses')
-  res.render('expenses', {
-    user: req.user,
-    expenses: [],
-    title: 'tirelire',
-  })
-} else {
-  console.log("No auth")
-  res.render('users', {
-    user: null,
-    title: 'tirelire',
-  })
-}
-  console.log("CALLED ME")
-  
-});
+//     res.render('expenses', {
+//       user: req.user,
+//       expenses: [],
+//       title: 'All Expenses',
+//     })
+//   } 
+// });
+
+// //new
+// router.get('/expenses/new', function(req, res){
+//   if (req.isAuthenticated()) {
+
+//     res.render('expenses/new', {
+//       user: req.user,
+//       expenses: [],
+//       title: 'Add Expenses',
+//     })
+//   } 
+// });
 
 module.exports = router;
