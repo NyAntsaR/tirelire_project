@@ -1,5 +1,6 @@
 const User = require('../models/user');
 
+
 module.exports = {
   index
 };
@@ -12,7 +13,12 @@ function index(req, res, next) {
     res.render('users/index', {
       users,
       user: req.user,
-      title: req.query.name,
-    });
-  }); 
+      title: 'tirelire',
+    })
+  })
+  .catch((err) => {
+    console.log(err)
+    res.status()
+  }) 
 }
+

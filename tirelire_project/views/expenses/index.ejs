@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<nav>
+        <a href="/expenses" <%- title === 'Expenses List' ? 'class="active"' : '' %>>Expense List</a>
+</nav>
+<table id="list">
+    <thead>
+        <tr>
+        <th>Store</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% expenses.forEach(function(m) { %>
+        <tr>
+            <td><%= m.store %></td>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+        
+<%- include('../partials/footer') %>

@@ -1,7 +1,7 @@
 var router = require('express').Router();
 var usersCtrl = require('../controllers/users');
 
-// GET /students
+// GET /users
 router.get('/', usersCtrl.index);
 
 module.exports = router;
