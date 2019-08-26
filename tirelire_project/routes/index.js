@@ -28,28 +28,4 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-// //OAut authenticated
-// router.get('/expenses', function(req, res){
-//   if (req.isAuthenticated()) {
-
-//     res.render('expenses', {
-//       user: req.user,
-//       expenses: [],
-//       title: 'All Expenses',
-//     })
-//   } 
-// });
-
-// //new
-// router.get('/expenses/new', function(req, res){
-//   if (req.isAuthenticated()) {
-
-//     res.render('expenses/new', {
-//       user: req.user,
-//       expenses: [],
-//       title: 'Add Expenses',
-//     })
-//   } 
-// });
-
 module.exports = router;

@@ -3,19 +3,19 @@
 <table id="list">
     <thead>
         <tr>
-            <th>Store</th>
+            <th>Name</th>
             <th>Date</th>
             <th>Amount</th>
         </tr>
     </thead>
 
     <tbody>
-        <% expenses.forEach(function(exp) { %>
+        <% incomes.forEach(function(inc) { %>
               <tr>
-                  <td><%= exp.store %></td>
-                  <td><%= exp.date %></td>
-                  <td><%= exp.amount %></td>
-                  <td><a href="/expenses/<%= exp._id %>">DETAILS</a></td>
+                  <td><%= inc.name %></td>
+                  <td><%= inc.date %></td>
+                  <td><%= inc.amount %></td>
+                  <td><a href="/incomes/<%= inc._id %>">DETAILS</a></td>
               </tr>
           <% }); %>
     </tbody>

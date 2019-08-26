@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var expenseSchema = new Schema({
-    store: {
+var incomeSchema = new Schema({
+    name: {
         type: String,
         require: true
     },
@@ -16,5 +16,5 @@ var expenseSchema = new Schema({
     } 
 });
 
-const Expense = mongoose.model('Expense', expenseSchema);
-module.exports = Expense;
+const Income = mongoose.model('Income', incomeSchema);
+module.exports = Income;

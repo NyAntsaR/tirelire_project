@@ -20,7 +20,18 @@
                 <ul class="right">
                     <li>
                         <% if (user) { %>
-                            <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                            <li>
+                                <a href="/expenses" <%- title === 'Expenses List' ? 'class="active"' : '' %>>Expense List</a>
+                            </li>
+                            <li>
+                                <a href="/incomes/new" <%- title === 'Add Income' ? 'class="active"' : '' %>>Add Income</a>
+                            </li>
+                            <li>
+                                <a href="/expenses/new" <%- title === 'Add Expense' ? 'class="active"' : '' %>>Add Expense</a>
+                            </li>
+                            <li>
+                                <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                            </li> 
                         <% } else { %>
                             <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
                         <% } %>
@@ -29,6 +40,22 @@
                 </div>
             </nav>
         </div>
+
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                <% users.forEach(function(u) { %>
+                      <tr>
+                          <td>Welcome <%= u.name %></td>
+                      </tr>
+                  <% }); %>
+            </tbody>
+        </table> 
         
     </body>
 </html> 
