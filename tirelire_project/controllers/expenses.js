@@ -16,7 +16,7 @@ function index(req, res) {
         .then(function(incomes){
             res.render('expenses/index', {
                 user: req.user,
-                title: 'All Expense',
+                title: 'List',
                 expenses,
                 incomes
             });
@@ -29,18 +29,6 @@ function index(req, res) {
         })
     })
 }
-
-// function getIncomes(req, res) {
-//     Income.find({})
-//     .then(function(incomes) {
-//         console.log(incomes);
-//         res.render('expenses/index', {
-//             user: req.user,
-//             title: 'All Income',
-//             incomes
-//         })
-//     })
-// }
 
 function show(req, res) {
     Expense.findById(req.params.id, function(err, expense) {

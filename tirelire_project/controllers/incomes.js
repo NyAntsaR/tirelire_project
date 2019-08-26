@@ -1,29 +1,10 @@
 var Income = require('../models/income');
 
 module.exports = {
-    // index,
     show,
     new: newIncome,
     create,
 }
-
-// function index(req, res) {
-//     Income.find({})
-//     .then(function(incomes) {
-//         console.log(incomes);
-//         res.render('expenses/index', {
-//             user: req.user,
-//             title: 'All Income',
-//             incomes
-//         })
-//         .catch(function(err){
-//             console.log(err);
-//             res.render('incomes/index', {
-//                 message: err
-//             });
-//         })
-//     })
-// }
 
 function show(req, res) {
     Income.findById(req.params.id, function(err, income) {
