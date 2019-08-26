@@ -15,6 +15,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var expensesRouter = require('./routes/expenses');
 var commentsRouter = require('./routes/comments');
+var icommentsRouter = require('./routes/icomments');
 var incomesRouter = require('./routes/incomes');
 var categoriesRouter = require('./routes/categories');
 
@@ -41,6 +42,7 @@ app.use('/', indexRouter);
 app.use('/', usersRouter);
 app.use('/expenses', expensesRouter);
 app.use('/', commentsRouter);
+app.use('/', icommentsRouter);
 app.use('/incomes', incomesRouter);
 app.use('/', categoriesRouter);
 

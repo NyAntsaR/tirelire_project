@@ -8,4 +8,32 @@
         <div>Amount: <%= income.amount %></div>
     </section>
 
+    <!----------------------------ADD COMMENT-------------------->
+    <form id="add-comment-form" method="POST" action="/incomes/<%= income._id %>/icomments">
+        <label>Comment:</label>
+        <textarea name="content"></textarea>
+
+        <input type="submit" value="Add Comment">
+    </form>
+
+    <% if (income.icomments.length) { %>
+    <table>
+        <thead>
+            <tr>
+            <th>Comment</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% income.icomments.forEach(function(ic) { %>
+            <tr>
+                <td><%= ic.content %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <h5>No Comment Yet</h5>
+    <% } %>
+
 <%- include('../partials/footer') %>
