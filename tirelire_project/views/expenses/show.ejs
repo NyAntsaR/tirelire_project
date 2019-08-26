@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<!----------------------------ADD NEW EXPENSE-------------------->
     <section id="show-page">
         <div>Name: </div>
         <div><%= expense.store %></div>
@@ -16,11 +16,42 @@
 
     </section>
 
+<!----------------------------ADD CATEGORY-------------------->
     <form id="add-cat-to-exp" action="/expenses/<%= expense._id%>/categories" method="POST">
         <select name="categoryId">
             <%- categories.map(c => `<option value="${c._id}">${c.name}</option>`).join('') %>
         </select>
         <button type="submit">Add to Category</button>
     </form>
+
+ <!----------------------------ADD COMMENT-------------------->
+<form id="add-comment-form" method="POST"
+  action="/expenses/<%= expense._id %>/comments">
+  <label>Comment:</label>
+  <textarea name="content"></textarea>
+  
+  <input type="submit" value="Add Comment">
+</form>
+
+<% if (expense.comments.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Comment</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% expense.comments.forEach(function(c) { %>
+          <tr>
+            <td><%= c.content %></td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Comment Yet</h5>
+  <% } %>
+    
 
 <%- include('../partials/footer') %>

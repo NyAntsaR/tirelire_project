@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var commentSchema = new Schema({
+    content: String,
+}, {
+    timestamps: true
+});
+
 var expenseSchema = new Schema({
     name: {
         type: String,
@@ -19,6 +25,8 @@ var expenseSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: 'Category'
     }],
+
+    comments: [commentSchema]
 
 });
 
