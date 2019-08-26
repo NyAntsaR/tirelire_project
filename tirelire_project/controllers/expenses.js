@@ -1,20 +1,25 @@
 var Expense = require('../models/expense');
+var Income = require('../models/income');
 
 module.exports = {
     index,
     show,
     new: newExpense,
-    create,
+    create
 }
 
 function index(req, res) {
     Expense.find({})
     .then(function(expenses) {
         console.log(expenses);
-        res.render('expenses/index', {
-            user: req.user,
-            title: 'All Expense',
-            expenses
+        Income.find({})
+        .then(function(incomes){
+            res.render('expenses/index', {
+                user: req.user,
+                title: 'All Expense',
+                expenses,
+                incomes
+            });
         })
         .catch(function(err){
             console.log(err);
@@ -24,6 +29,18 @@ function index(req, res) {
         })
     })
 }
+
+// function getIncomes(req, res) {
+//     Income.find({})
+//     .then(function(incomes) {
+//         console.log(incomes);
+//         res.render('expenses/index', {
+//             user: req.user,
+//             title: 'All Income',
+//             incomes
+//         })
+//     })
+// }
 
 function show(req, res) {
     Expense.findById(req.params.id, function(err, expense) {

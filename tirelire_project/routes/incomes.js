@@ -3,7 +3,7 @@ var incomesCtrl = require('../controllers/incomes');
 
 
 // GET /expenses
-router.get('/', isLoggedIn, incomesCtrl.index);
+// router.get('/', isLoggedIn, incomesCtrl.index);
 router.get('/new', isLoggedIn, incomesCtrl.new);
 router.get('/:id', isLoggedIn, incomesCtrl.show);
 router.post('/', isLoggedIn, incomesCtrl.create);
