@@ -1,12 +1,19 @@
 <%- include('../partials/header') %>
 
     <section id="show-page">
-        <div>Store: </div>
+        <div>Name: </div>
         <div><%= expense.store %></div>
         <div>Date: </div>
         <div><%= expense.date %></div>
         <div>Amount: </div>
         <div><%= expense.amount %></div>
+        <div>Category: </div>
+        <ul>
+            <%- expense.category.map(c => 
+                `<li>${c.name}</li>`
+            ).join('') %>
+        </ul>
+
     </section>
 
     <form id="add-cat-to-exp" action="/expenses/<%= expense._id%>/categories" method="POST">

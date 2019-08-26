@@ -1,4 +1,19 @@
 <%- include('../partials/header') %>
+<!----------------REMAINING BALANCE---------------->
+<% var balance1 = 0 %>
+<% var balance2 = 0 %>
+<% incomes.forEach(function(inc) { %> 
+    <% balance1 += inc.amount %> 
+<% }); %>
+<% expenses.forEach(function(exp) { %> 
+    <% balance2 += exp.amount %> 
+<% }); %>
+
+<table>
+    <td><strong> $ <%= (balance1 - balance2).toFixed(2)%></strong></td>
+    <h6>Remaining balance</h6>
+</table>
+<!----------------INCOMES---------------->
 <h4>Incomes</h4>
 <table id="list">
     <thead>
@@ -10,37 +25,64 @@
     </thead>
 
     <tbody>
-        <% incomes.forEach(function(inc) { %>
-              <tr>
-                  <td>  <%=  inc.name %></td>
-                  <td>  <%=  inc.date %></td>
-                  <td> $ <%=  inc.amount %></td>
-                  <td><a href="/incomes/<%= inc._id %>">DETAILS</a></td>
-              </tr>
+        <% var TotalIncome = 0 %>
+        <% incomes.forEach(function(inc) { %> 
+            <% TotalIncome += inc.amount %> 
+            <tr>
+                <td>  <%=  inc.name %></td>
+                <td>  <%=  inc.date %></td>
+                <td> $ <%=  inc.amount %></td>
+                <td><a href="/incomes/<%= inc._id %>">DETAILS</a></td>
+            </tr>
+
+            <br> 
           <% }); %>
     </tbody>
 </table> 
-<br>
-<br>
+
+<table>
+    <th>
+        Total Incomes
+    </th>
+    <tr>
+        <td colspan="2"></td>
+        <td><strong> $ <%= TotalIncome.toFixed(2)%></strong></td>
+    </tr> 
+</table>
+
+<!----------------EXPENSES---------------->
 <h4>Expenses</h4>
 <table id="list">
     <thead>
         <tr>
-            <th>Store</th>
+            <th>Name</th>
             <th>Date</th>
             <th>Amount</th>
         </tr>
     </thead>
 
     <tbody>
+        <% var TotalExpense = 0 %>
         <% expenses.forEach(function(exp) { %>
-              <tr>
-                  <td>  <%= exp.store %></td>
-                  <td>  <%= exp.date %></td>
-                  <td> $ <%= exp.amount %></td>
-                  <td><a href="/expenses/<%= exp._id %>">DETAILS</a></td>
-              </tr>
+            <% TotalExpense += exp.amount %>
+            <tr>
+                <td>  <%= exp.name %></td>
+                <td>  <%= exp.date %></td>
+                <td> $ <%= exp.amount %></td>
+                <td><a href="/expenses/<%= exp._id %>">DETAILS</a></td>
+            </tr>
           <% }); %>
     </tbody>
 </table>
+
+<table>
+    <th>
+        Total Expenses
+    </th>
+    <tr>
+        <td colspan="2"></td>
+        <td><strong> $ <%= TotalExpense.toFixed(2)%></strong></td>
+    </tr> 
+</table>
+   
 <%- include('../partials/footer') %>

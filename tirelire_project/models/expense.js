@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var expenseSchema = new Schema({
-    store: {
+    name: {
         type: String,
         require: true
     },
@@ -17,7 +17,9 @@ var expenseSchema = new Schema({
 
     category: [{
         type: Schema.Types.ObjectId, 
-        ref: 'Category'}]
+        ref: 'Category'
+    }],
+
 });
 
 const Expense = mongoose.model('Expense', expenseSchema);
