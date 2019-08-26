@@ -1,5 +1,6 @@
 var Expense = require('../models/expense');
 var Income = require('../models/income');
+var Category = require('../models/category');
 
 module.exports = {
     index,
@@ -31,11 +32,18 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    Expense.findById(req.params.id, function(err, expense) {
-        res.render('expenses/show', {
-            user: req.user,
-            expense,
-            title: "Details"
+    Expense.findById(req.params.id)
+    .populate('category')
+    .exec(function(err, expense) {
+        Category.find({_id: {$nin: expense.category}})
+        .exec(function(err, categories) {
+            console.log(categories);
+            res.render('expenses/show', {
+                user: req.user,
+                title: "Details",
+                expense,
+                categories
+            });
         });
     });
 }

@@ -9,4 +9,11 @@
         <div><%= expense.amount %></div>
     </section>
 
+    <form id="add-cat-to-exp" action="/expenses/<%= expense._id%>/categories" method="POST">
+        <select name="categoryId">
+            <%- categories.map(c => `<option value="${c._id}">${c.name}</option>`).join('') %>
+        </select>
+        <button type="submit">Add to Category</button>
+    </form>
+
 <%- include('../partials/footer') %>

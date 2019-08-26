@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<p>Please first ensure that the Categiry is not in the dropdown
+  <select>
+    <% categories.forEach(function(c) { %>
+      <option><%= c.name %></option>
+    <% }) %>
+  </select>
+</p>
+<form id="add-category-form" action="/categories" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name">
+
+  <input type="submit" value="Add category">
+</form>
+
+<%- include('../partials/footer') %>
