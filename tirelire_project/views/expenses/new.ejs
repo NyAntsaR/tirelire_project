@@ -1,14 +1,20 @@
 <%- include('../partials/header') %>
 
 <form id="new-form" action="/expenses" method="POST">
-  <label>Store:</label>
-  <input type="text" name="store">
+  <label>Description:</label>
+  <input type="text" name="name">
   <label>Date:</label>
-  <input type="date" name="date">
+  <input type="text"  pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" placeholder="yyyy-mm-dd" name="date">
   <label>Amount:</label>
   <input type="number" name="amount">
 
-  <input type="submit" value="Add Expense">
+  <input class="add" type="submit" value="Add Expense">
 </form>
+
+<form action="/expenses">
+  <input class="addC" type="submit" value="Close">
+</form>
+
+
 
 <%- include('../partials/footer') %>

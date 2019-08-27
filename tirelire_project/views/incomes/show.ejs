@@ -1,39 +1,37 @@
 <%- include('../partials/header') %>
 
     <section id="show-page">
-        <div>Name: <%= income.name %></div>
+        <h1 id="title">Incomes Details</h1>
+        <label>Name:</label>
+        <div class="field"><%= income.name %></div>
         <br>
-        <div>Date: <%= income.date %></div>
+        <label>Date:</label>
+        <div class="field"><%= income.date %></div>
         <br>
-        <div>Amount: <%= income.amount %></div>
-    </section>
+        <label>Amount:</label>
+        <div class="field"> $ <%= income.amount %></div>
+    
 
     <!----------------------------ADD COMMENT-------------------->
-    <form id="add-comment-form" method="POST" action="/incomes/<%= income._id %>/icomments">
-        <label>Comment:</label>
-        <textarea name="content"></textarea>
-
-        <input type="submit" value="Add Comment">
-    </form>
-
-    <% if (income.icomments.length) { %>
-    <table>
-        <thead>
-            <tr>
-            <th>Comment</th>
-            </tr>
-        </thead>
-
-        <tbody>
+        <% if (income.icomments.length) { %>
+        <label>Notes</label>
             <% income.icomments.forEach(function(ic) { %>
-            <tr>
-                <td><%= ic.content %></td>
-            </tr>
+                <div class="field"><%= ic.content %></div>
             <% }); %>
-        </tbody>
-    </table>
-    <% } else { %>
-    <h5>No Comment Yet</h5>
-    <% } %>
+        <% } %>
+
+        <div id="line"></div>
+        <br>
+        <form method="POST" action="/incomes/<%= income._id %>/icomments">
+            <label>Add Notes:</label>
+            <div><textarea name="content"></textarea></div>
+
+            <input class="addC" type="submit" value="Save">
+        </form>
+
+        <form action="/expenses">
+            <input class="addC"  style="float: right" type="submit" value="Close">
+        </form>
+    </section>
 
 <%- include('../partials/footer') %>

@@ -1,1 +1,244 @@
+* {
+    box-sizing: border-box;
+    font-family: Helvetica;
+    color: #424748;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 
+        "nav"
+        "main"
+}
+
+#login {
+    font-size: 15px;
+    text-decoration: none;
+    border: 1px solid rgb(116, 119, 123);
+    border-radius: 3px;
+    padding: 20px 70px;
+    margin: auto;
+}
+
+#login_title {
+    background-color:  rgb(116, 119, 123);
+    color: white;
+    margin: 200px auto;
+    padding: 80px 150px 100px;
+    border: 1px solid lightslategray;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(196, 193, 193);
+}
+  
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: rgb(126, 124, 124);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+p {
+    color: white;
+    margin-left: 20px;
+}
+
+li a:hover:not(.active) {
+    color: #111;
+}
+
+.active {
+    color: black;
+}
+
+.balance {
+    font-size: 40px;
+    border: 2px solid lightgray; 
+    box-shadow: 5px 5px rgb(128, 126, 126);
+    border-radius: 5px;
+    margin: auto;
+    padding: 0px;
+    margin-top: 50px;
+    font-size: 80px;
+}
+
+section{
+    display: flex;
+} 
+
+/* table {
+    border-collapse: collapse;
+} */
+
+.list {
+    background-color: gray;
+    padding-bottom: 16px;
+    border-bottom: 1px solid gray;
+}
+
+.total {
+    background-color: white;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.tables { 
+    width: 500px;
+    border: 10px solid gray;
+    border-radius: 4px;
+    margin: 16px auto;
+}
+
+table thead th {
+    padding: 16px;
+    font-size: 20px;
+}
+  
+table td {
+    /* border-bottom: 1px solid #424748; */
+    text-align: center;
+    padding: 10px;   
+}
+
+tbody td{
+    border-bottom: 1px solid lightgray;
+}
+
+td a {
+    background: url("images/add.png");
+}
+
+.details{
+    background: url("images/details.png");
+}
+
+h6 {
+    text-align: center;
+    font-size: 15px;
+    margin: 5px 280px 30px 0px;
+}
+
+/*---------ADD EXPENSE/INCOME-------------*/
+#new-form {
+    display: grid;
+    border: 2px solid gray;
+    border-radius: 3px;
+    justify-content: center;
+    width: 500px;
+    margin: 50px auto;
+    padding: 30px 10px 50px 10px;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    margin: 10px 20px 10px 20px;
+    font-size: 12px;
+    
+}
+
+label {
+    margin: 10px 20px 10px 20px;
+}
+
+.add {
+    width: 90px;
+    margin: 50px 0px 10px 230px;
+    background-color: gray;
+    color: white;
+}
+
+/*---------INCOME DETAILS-------------*/
+#show-page {
+    display: grid;
+    border: 1px solid gray;
+    border-radius: 3px;
+    justify-content: center;
+    width: 500px;
+    margin: 50px auto;
+    padding: 30px 10px 50px 10px;
+}
+
+.field {
+    width: 300px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    margin: 10px 20px 10px 20px;
+    font-size: 13px;
+    padding: 10px;
+}
+
+#comment_field {
+    font-size: 15px;
+    border: 2px solid black;
+    width: 300px;
+    height: 30px;
+}
+
+textarea {
+    width: 370px;
+    height: 100px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    margin: 30px 5px 5px 30px;
+}
+
+.addC {
+    width: 90px;
+    margin: 10px 12px 20px 300px;
+    background-color: gray;
+    color: white;
+}
+
+#line {
+    margin: 20px 0px 10px 0px;
+    border: 2px solid lightgray;
+}
+
+/*---------EXPENSE DETAILS-------------*/
+#header {
+    margin: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
+
+#category-display{
+    display: flex;
+}
+
+select {
+    width: 200px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+    margin: 10px 20px 10px 20px;
+    font-size: 13px;
+    padding: 10px;
+}
+
+.addS {
+    width: 90px;
+    margin: 10px 12px 20px;
+    background-color: gray;
+    color: white;
+}
+
 

@@ -29,7 +29,7 @@ function create(req, res) {
         console.log(`I Am saved: " ${income}`);
         //handle errors
         if (err) return res.redirect('/incomes/new');
-        res.redirect('/users');
+        res.redirect('/expenses');
     });
 }
 

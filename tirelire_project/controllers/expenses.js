@@ -6,7 +6,8 @@ module.exports = {
     index,
     show,
     new: newExpense,
-    create
+    create,
+    delete: deleteExp
 }
 
 function index(req, res) {
@@ -64,6 +65,13 @@ function create(req, res) {
         res.redirect('/expenses');
     });
 }
+
+function deleteExp(req, res, next) {
+    Expense.findOne({'_id': req.params.id},)
+    .exec( function (err) {
+      res.redirect('/expenses');
+    });
+  }
 
 
 

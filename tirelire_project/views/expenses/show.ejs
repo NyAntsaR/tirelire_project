@@ -1,57 +1,60 @@
 <%- include('../partials/header') %>
 <!----------------------------ADD NEW EXPENSE-------------------->
-    <section id="show-page">
-        <div>Name: </div>
-        <div><%= expense.store %></div>
-        <div>Date: </div>
-        <div><%= expense.date %></div>
-        <div>Amount: </div>
-        <div><%= expense.amount %></div>
-        <div>Category: </div>
-        <ul>
-            <%- expense.category.map(c => 
-                `<li>${c.name}</li>`
-            ).join('') %>
-        </ul>
+  <section id="show-page">
+    <div id="header">
+      <h1>Expense Details</h1>
+    </div>
 
-    </section>
+    <label>Name: </label>
+    <div class="field"><%= expense.name %></div>
+    <label>Date: </label> 
+    <div class="field"><%= expense.date %></div>
+    <label>Amount: </label> 
+    <div class="field"> $ <%= expense.amount %></div>
+
+    <label>Category: </label>
+    <div class="field"><%- expense.category.map(c => `${c.name}`).join('') %></div>
 
 <!----------------------------ADD CATEGORY-------------------->
-    <form id="add-cat-to-exp" action="/expenses/<%= expense._id%>/categories" method="POST">
+    <form id="category-display" action="/expenses/<%= expense._id%>/categories" method="POST">
         <select name="categoryId">
             <%- categories.map(c => `<option value="${c._id}">${c.name}</option>`).join('') %>
         </select>
-        <button type="submit">Add to Category</button>
+        <input class="addS" type="submit" value="Add Category">
     </form>
-
- <!----------------------------ADD COMMENT-------------------->
-<form id="add-comment-form" method="POST"
-  action="/expenses/<%= expense._id %>/comments">
-  <label>Comment:</label>
-  <textarea name="content"></textarea>
-  
-  <input type="submit" value="Add Comment">
-</form>
-
-<% if (expense.comments.length) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>Comment</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% expense.comments.forEach(function(c) { %>
-          <tr>
-            <td><%= c.content %></td>
-          </tr>
-          <% }); %>
-      </tbody>
-    </table>
-  <% } else { %>
-    <h5>No Comment Yet</h5>
-  <% } %>
     
+
+<!----------------------------ADD COMMENT-------------------->
+  <label>Notes: </label>
+  <% if (expense.comments.length) { %>
+    <% expense.comments.forEach(function(c) { %>
+      <div class="field"><%= c.content %></div>
+    <% }); %>
+  <% } %>
+
+  <div id="line"></div>
+  <br>
+
+  <form method="POST"
+    action="/expenses/<%= expense._id %>/comments">
+    <label>Add Notes:</label>
+    <textarea name="content"></textarea>
+
+    <input class="addC" type="submit" value="Save">
+  </form>
+
+<!----------------------------DELETE-------------------->
+  <!-- <form action="/expenses/<%= expense._id %>?_method=DELETE" method="POST" class="delete-content">
+    <input class="addC" type="submit" value="Delete">
+  </form> -->
+<form action="/expenses">
+  <input class="addC"  style="float: right" type="submit" value="Close">
+</form>
+  
+    
+ 
+  
+
+</section>
 
 <%- include('../partials/footer') %>
