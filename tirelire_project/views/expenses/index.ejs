@@ -30,17 +30,17 @@
                     <thead>
                         <tr>
                             <td>incomes</td>
-                            <td>
-                                <a href="/incomes/new" <%- title === 'Add Income' ? 'class="active"' : '' %>>
-                                <img src="images/add.png" alt="add income" />
-                                </a>
-                            </td>
                         </tr>
                         <tr>
                             <td class="total"><strong> $ <%= TotalIncome.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')%></strong></td>
                         </tr> 
-                    </thead> 
+                    </thead>
+              
+                    <a href="/incomes/new" <%- title === 'Add Income' ? 'class="active"' : '' %>>
+                        <img style="float: right" src="images/add.png" alt="add income" />
+                    </a>
                 </table> 
+
             </div>
     
             <table>
@@ -82,16 +82,14 @@
                 <thead>
                     <tr>
                         <td>Expenses</td>
-                        <td>
-                            <a href="/expenses/new" <%- title === 'Add Expense' ? 'class="active"' : '' %>>
-                            <img src="images/add.png" alt="add expenses" />
-                            </a>
-                        </td>
                     </tr>
                     <tr>
                         <td class="total"><strong> $ <%= TotalExpense.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')%></strong></td>
                     </tr> 
                 </thead> 
+                <a href="/expenses/new" <%- title === 'Add Expense' ? 'class="active"' : '' %>>
+                    <img style="float:right" src="images/add.png" alt="add expenses" />
+                </a>
             </table> 
         </div>
 

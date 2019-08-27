@@ -1,6 +1,9 @@
 <%- include('../partials/header') %>
 
 <form id="new-form" action="/incomes" method="POST">
+  <div id="header">
+    <h1>Add Income</h1>
+  </div>
   <label>Name:</label>
   <input type="text" name="name">
   <label>Date:</label>
@@ -12,8 +15,8 @@
 
 </form>
 
-<form action="/expenses">
-  <input class="addC"  type="submit" value="Close">
+<form  action="/expenses">
+  <input class="close"  type="submit" value="Close">
 </form>
 
 

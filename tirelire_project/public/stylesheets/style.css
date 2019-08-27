@@ -5,6 +5,7 @@
 }
 
 body {
+    background-color: rgb(150, 148, 148);
     margin: 0;
     height: 100vh;
     display: grid;
@@ -14,21 +15,34 @@ body {
         "main"
 }
 
+
 #login {
+    display: flex;
     font-size: 15px;
     text-decoration: none;
+    background-color: white;
     border: 1px solid rgb(116, 119, 123);
     border-radius: 3px;
     padding: 20px 70px;
     margin: auto;
 }
 
+a {
+    text-decoration: none;
+    margin-top: 8px;
+}
+
+img {
+    height: 30px;
+    margin-right: 10px;
+}
+
 #login_title {
     background-color:  rgb(116, 119, 123);
     color: white;
-    margin: 200px auto;
+    margin: 150px auto;
     padding: 80px 150px 100px;
-    border: 1px solid lightslategray;
+    border: 1px solid white;
     border-radius: 3px;
     font-size: 20px;
 }
@@ -41,17 +55,13 @@ ul {
     background-color: rgb(196, 193, 193);
 }
   
-li {
+li a {
     float: right;
+    text-decoration: none;
+    margin: 10px;
+    color: white;
 }
 
-li a {
-    display: block;
-    color: rgb(126, 124, 124);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
 
 p {
     color: white;
@@ -67,23 +77,26 @@ li a:hover:not(.active) {
 }
 
 .balance {
+    background-color: white;
     font-size: 40px;
-    border: 2px solid lightgray; 
     box-shadow: 5px 5px rgb(128, 126, 126);
-    border-radius: 5px;
+    border-radius: 10px;
     margin: auto;
-    padding: 0px;
+    width: 400px;
     margin-top: 50px;
-    font-size: 80px;
+    font-size: 60px;
 }
 
 section{
     display: flex;
+    margin: auto 90px;
+    align-content:space-between;
+    
 } 
 
-/* table {
+table {
     border-collapse: collapse;
-} */
+}
 
 .list {
     background-color: gray;
@@ -98,10 +111,12 @@ section{
 }
 
 .tables { 
+    background-color: white;
     width: 500px;
     border: 10px solid gray;
     border-radius: 4px;
-    margin: 16px auto;
+    margin: auto;
+    box-shadow: 5px 5px 5px 5px white;
 }
 
 table thead th {
@@ -130,16 +145,16 @@ td a {
 h6 {
     text-align: center;
     font-size: 15px;
-    margin: 5px 280px 30px 0px;
+    margin-top: 10px;
 }
 
 /*---------ADD EXPENSE/INCOME-------------*/
 #new-form {
+    background-color: white;
     display: grid;
-    border: 2px solid gray;
     border-radius: 3px;
     justify-content: center;
-    width: 500px;
+    width: 450px;
     margin: 50px auto;
     padding: 30px 10px 50px 10px;
 }
@@ -165,8 +180,13 @@ label {
     color: white;
 }
 
+#plus_link {
+    margin-top:-1px;
+}
+
 /*---------INCOME DETAILS-------------*/
 #show-page {
+    background-color: white;
     display: grid;
     border: 1px solid gray;
     border-radius: 3px;
@@ -241,4 +261,11 @@ select {
     color: white;
 }
 
-
+/*---------CLOSE------------*/
+.close {
+    float: right;
+    width: 90px;
+    margin: auto 450px;
+    background-color: white;
+    color: gray;
+}
