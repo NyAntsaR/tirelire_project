@@ -8,16 +8,18 @@
 <% expenses.forEach(function(exp) { %> 
     <% balance2 += exp.amount %> 
 <% }); %>
+<section>
+    <div>
+        <p id="title">Welcome to tirelire</p>
+    </div>
+    <hr>
+    
+    <div class="container">
+        <h1 id="balance" class="text-center">$ <%= (balance1 - balance2).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')%></h1>
+    </div>
+    <h5 class="card-title text-muted text-uppercase text-center">Remaining Balance</h5>
+</section>
 
-<table class="balance">
-    <thead>
-        <tr>
-            <td > $ <%= (balance1 - balance2).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')%></td>
-        </tr>
-    </thead>
-</table>
-
-<h6>Remaining balance</h6>
 <!----------------INCOMES---------------->
 <section class="pricing py-5">
         <% var TotalIncome = 0 %>
@@ -25,100 +27,96 @@
             <% TotalIncome += inc.amount %>
         <% }); %>
         <div class="container">
-            <div class="list">
-                <table>
-                    <thead>
-                        <tr>
-                            <td>incomes</td>
-                        </tr>
-                        <tr>
-                            <td class="total"><strong> $ <%= TotalIncome.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')%></strong></td>
-                        </tr> 
-                    </thead>
-              
-                    <a href="/incomes/new" <%- title === 'Add Income' ? 'class="active"' : '' %>>
-                        <img style="float: right" src="images/add.png" alt="add income" />
-                    </a>
-                </table> 
-
-            </div>
-    
-            <table>
-                <thead>
-                    <tr>
-                        <th>Amount</th>
-                        <th>Description</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-    
-                <tbody>
-                    <% var TotalIncome = 0 %>
-                    <% incomes.forEach(function(inc) { %>
-                        <% TotalIncome += inc.amount %>
-                        <tr>
-                            <td> $ <%= inc.amount %></td>
-                            <td>  <%= inc.name %></td>
-                            <td>  <%= inc.date %></td>
-                            <td class="details">
-                                <a href="/incomes/<%= inc._id %>">
-                                    <img src="images/details.png" alt="add income" />
-                                </a>
-                            </td>
-                        </tr>
-                    <% }); %>
-                </tbody>
-            </table>
-        </div>
+            <div class="row">
+                <!----Header-->
+                <div class="col-lg-6">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                                <h5 class="card-title text-muted text-uppercase text-center">Incomes</h5>
+                                <h6 class="card-price text-center">$ <%= TotalIncome.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')%></h6>
+                        </div>
+                        <hr>
+                        <!----Table-->
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                
+                            <tbody>
+                                <% var TotalIncome = 0 %>
+                                <% incomes.forEach(function(inc) { %>
+                                    <% TotalIncome += inc.amount %>
+                                    <tr>
+                                        <th scope="row"> $ <%= inc.amount %></th>
+                                        <td>  <%= inc.name %></td>
+                                        <td>  <%= inc.date %></td>
+                                        <td class="details">
+                                            <a href="/incomes/<%= inc._id %>">
+                                                <img src="images/details.png" alt="add income" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                        <hr>
+                        <a class="btn btn-block btn-info text-uppercase" href="/incomes/new" <%- title === 'Add Income' ? 'class="active"' : '' %>>
+                            Add income <img src="images/add.png" alt="add income" />
+                        </a>
+                    </div>
+                </div>
 
 <!----------------EXPENSES---------------->
     <% var TotalExpense = 0 %>
     <% expenses.forEach(function(exp) { %>
         <% TotalExpense += exp.amount %>
     <% }); %>
-    <div class="tables">
-        <div class="list">
-            <table>
-                <thead>
-                    <tr>
-                        <td>Expenses</td>
-                    </tr>
-                    <tr>
-                        <td class="total"><strong> $ <%= TotalExpense.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')%></strong></td>
-                    </tr> 
-                </thead> 
-                <a href="/expenses/new" <%- title === 'Add Expense' ? 'class="active"' : '' %>>
-                    <img style="float:right" src="images/add.png" alt="add expenses" />
-                </a>
-            </table> 
+        <div class="col-lg-6">
+            <div class="card mb-5 mb-lg-0">
+                <div class="card-body">
+                    <h5 class="card-title text-muted text-uppercase text-center">Expenses</h5>
+                    <h6 class="card-price text-center">$ <%= TotalExpense.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')%></h6>
+                </div>
+                <hr>
+                <!----Table-->
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                        </thead>
+            
+                        <tbody>
+                            <% var TotalExpense = 0 %>
+                            <% expenses.forEach(function(exp) { %>
+                                <% TotalExpense += exp.amount %>
+                                <tr>
+                                    <th scope="row"> $ <%= exp.amount %></th>
+                                    <td>  <%= exp.name %></td>
+                                    <td>  <%= exp.date %></td>
+                                    <td class="details">
+                                        <a href="/expenses/<%= exp._id %>">
+                                            <img src="images/details.png" alt="add expense" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <a class="btn btn-block btn-info text-uppercase" href="/expenses/new" <%- title === 'Add Income' ? 'class="active"' : '' %>>
+                        Add Expense <img src="images/add.png" alt="add income" />
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Amount</th>
-                    <th>Description</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <% var TotalExpense = 0 %>
-                <% expenses.forEach(function(exp) { %>
-                    <% TotalExpense += exp.amount %>
-                    <tr>
-                        <td> $ <%= exp.amount %></td>
-                        <td>  <%= exp.name %></td>
-                        <td>  <%= exp.date %></td>
-                        <td class="details">
-                            <a href="/expenses/<%= exp._id %>">
-                                <img src="images/details.png" alt="add expense" />
-                            </a>
-                        </td>
-                    </tr>
-                <% }); %>
-            </tbody>
-        </table>
+        </div>
     </div>
 </section>
 <%- include('../partials/footer') %>
