@@ -5,20 +5,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+
+        <!-- Optional JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         <title><%= title %></title>
     </head>
 
     <body>
-        <nav>   
-            <ul>
-                <% if (user) { %>
-                    <p style="float:left">Tirelire</p>
-                    <li><a href="/logout">Log Out</a> 
-                    <li><a href="/categories/new" <%- title === 'Add Category' ? 'class="active"' : '' %>>Category</a></li>
-                    <li><a href="/expenses" <%- title === 'Expenses List' ? 'class="active"' : '' %>>Home</a></li>  
-                <% } %>
+      
+        <% if (user) { %>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">TIRELIRE</a>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/expenses" <%- title === 'Expenses List' ? 'class="active"' : '' %>>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories/new" <%- title === 'Add Category' ? 'class="active"' : '' %>>
+                        Category
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">
+                        Log Out
+                    </a>
+                </li>
             </ul>
         </nav>
+
+        <% } else { %>
+            <header>
+                <div class="overlay"></div>
+                <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                    <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4">
+                </video>
+                <div class="container h-100">
+                    <div class="d-flex h-100 text-center align-items-center">
+                        <div class="w-100 text-white">
+                            <h1 class="display-3">TIRELIRE</h1>
+                            <p class="lead mb-0">Tirelire is for adults who want a clear understanding of how much they’re spending and how it’s spent.</p>
+                            <div id="login">
+                                <img src="images/google.png">
+                                <a href="/auth/google">Login with Google</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <% } %> 
         <main> 
