@@ -254,3 +254,8 @@ textarea {
 #input_category{
     margin-bottom: 10px;
 }
+
+
+#button-edit-delete {
+    display: flex;
+}

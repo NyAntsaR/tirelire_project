@@ -92,7 +92,6 @@ function update(req, res, next) {
   }
   
 function remove(req, res, next) {
-    console.log('hi')
     Expense.findOneAndDelete({_id: req.params.id})
     .exec( function (err) {
       res.redirect('/expenses');

@@ -1,59 +1,45 @@
 <%- include('../partials/header') %>
 <section>
-        <div>
-            <p class="title">Income Detail</p>
-        </div>
-        <hr>
+    <div>
+        <p class="title">Add Income</p>
+    </div>
+    <hr>
 </section>
 
 <section class="show-page">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-xl-9 mx-auto">
-                <div class="card card-signin flex-row my-5">
-                    <div class="card-img-left d-none d-md-flex">
-                        <!-- Background image for card set in CSS! -->
-                    </div>
-                    <div class="card-body"> 
-                        
+                <div class="card card-income flex-row my-5">
+                    
+                    <div class="card-body">
                         <form class="form-signin" action="../../incomes/<%= income.id %>?_method=put" method="POST">
-                            <div class="card-details">
-                                <h5 class="title_details">Description: </h5>
-                                <h6 class="details_value"><%= income.name %></h6>
-                            </div>
+                          <div class="form-label-group">
+                            <label for="inputText">Description: </label>
+                            <input type="text" id="inputText" class="form-control" placeholder="Description" name="name">
+                          </div>
 
-                            <div class="card-details">
-                                <h5 class="title_details">Date: </h5>
-                                <h6 class="details_value"><%= income.date %></h6>
-                            </div>
+                          <div class="form-label-group">
+                            <label for="inputText">Date: </label>
+                            <input type="text" id="inputText" class="form-control" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" placeholder="yyyy-mm-dd" name="date">
+                          </div>
 
-                            <div class="card-details">
-                                <h5 class="title_details">Amount: </h5>
-                                <h6 class="details_value"> $ <%= income.amount %></h6>
-                            </div>
-                            <div class="card-details">
-                                <h5 class="title_details">Notes: </h5>
-                                <% if (income.icomments.length) { %>
-                                    <% income.icomments.forEach(function(ic) { %>
-                                        <h6 class="details_value"><%= ic.content %></h6>
-                                    <% }); %>
-                                <% } %>
-                            </div>
+                          <div class="form-label-group">
+                            <label for="inputText">Amount: </label>
+                            <input type="number" id="inputText" class="form-control" placeholder="Amount" name="amount">
+                          </div>
+                          <hr>
+                          <button type="submit" class="btn btn-info">Save</button>
                         </form>
-                        <!----------------------------ADD COMMENT-------------------->
-                        <hr> 
-                        <form method="POST" action="/incomes/<%= income._id %>/icomments">
-                            <div class="card-details">
-                                <h5 class="title_details">Add Notes: </h5>
-                                <textarea name="content"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-info">Save</button>
-                        </form>
+                        
                         <hr>
 
                         <form action="/expenses">
                             <button type="submit" class="btn btn-outline-info btn-lg btn-block">Close</button>
                         </form>
+                    </div>
+                    <div class="card-img-right d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
                     </div>
                 </div>
             </div>  
