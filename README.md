@@ -6,9 +6,9 @@
 
 ## ScreenShot
 
-![Screenshot](img1.png)
-![Screenshot](img2.png)
-![Screenshot](img3.png)
+![Screenshot](image/img1.png)
+![Screenshot](image/img2.png)
+![Screenshot](image/img3.png)
 
 ## Technologies Used
 
