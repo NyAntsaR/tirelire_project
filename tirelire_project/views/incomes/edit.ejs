@@ -14,8 +14,9 @@
                     <div class="card-img-left d-none d-md-flex">
                         <!-- Background image for card set in CSS! -->
                     </div>
-                    <div class="card-body">
-                        <form class="form-signin">
+                    <div class="card-body"> 
+                        
+                        <form class="form-signin" action="../../incomes/<%= income.id %>?_method=put" method="POST">
                             <div class="card-details">
                                 <h5 class="title_details">Description: </h5>
                                 <h6 class="details_value"><%= income.name %></h6>
@@ -48,16 +49,6 @@
                             </div>
                             <button type="submit" class="btn btn-info">Save</button>
                         </form>
-                        <hr>
-
-                        <a href="/incomes/<%= income._id %>/edit" class="btn-register btn btn-outline-secondary">Edit</a>
-
-                        <hr>
-
-                        <form action="/incomes/<%= income._id %>?_method=DELETE" method="POST" class="delete">
-                            <button type="submit"><i class="far fa-trash-alt"></i></button>
-                        </form> 
-                        
                         <hr>
 
                         <form action="/expenses">

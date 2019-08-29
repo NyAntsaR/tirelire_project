@@ -10,8 +10,8 @@
                   <h5 class="title_details">Name: </h5>
                   <input id="input_category" type="text" id="inputText" class="form-control" name="name">
                 </div>
-              </form>
-              <button type="submit" class="btn btn-info">Add Category</button>
+                <button type="submit" class="btn btn-info">Add Category</button>
+              </form> 
           </div> 
       </div>
           <!-----Table-->
@@ -27,17 +27,22 @@
             <tbody>
               <% categories.forEach(function(c) { %>
               <tr>
-                  <th scope="row"><%= c.name %></td>
+                  <th scope="row"><%= c.name %></th>
                 <% }) %>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-          
-      </div>
     </div>
   </div>
+</section>
+
+<!-----------LIST GROUPED CATEGORY-->
+<section>
+    <div>
+        <p class="title">Expense summery</p>
+    </div>
 </section>
 
 

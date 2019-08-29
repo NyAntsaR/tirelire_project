@@ -6,7 +6,9 @@ router.get('/', isLoggedIn, expensesCtrl.index);
 router.get('/new', isLoggedIn, expensesCtrl.new);
 router.get('/:id', isLoggedIn, expensesCtrl.show);
 router.post('/', isLoggedIn, expensesCtrl.create);
-router.delete('/:id', isLoggedIn, expensesCtrl.delete);
+router.get('/:id/edit', isLoggedIn, expensesCtrl.edit);
+router.put('/:id', isLoggedIn, expensesCtrl.update, expensesCtrl.show);
+router.delete('/:id', isLoggedIn, expensesCtrl.remove)
 
 
 function isLoggedIn(req, res, next) {

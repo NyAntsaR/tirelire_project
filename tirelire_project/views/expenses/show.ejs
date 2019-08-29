@@ -66,21 +66,27 @@
                             <button type="submit" class="btn btn-info">Save</button>
                         </form>
                         <hr>
+                        
+                        <a href="/expenses/<%= expense._id %>/edit" class="btn-register btn btn-outline-secondary">Edit</a>
+                       
+
+                        <hr>
+
+                        
+                        <form action="/expenses/<%= expense._id %>?_method=DELETE" method="POST">
+                            <button type="submit"><i class="far fa-trash-alt"></i></button>
+                        </form> 
+                        <hr>
 
                         <form action="/expenses">
                             <button type="submit" class="btn btn-outline-info btn-lg btn-block">Close</button>
                         </form>
+                        <hr>
                     </div>
                 </div>
             </div>  
         </div> 
     </div>
 </section>
-
-
-
-
-
-
 
 <%- include('../partials/footer') %>

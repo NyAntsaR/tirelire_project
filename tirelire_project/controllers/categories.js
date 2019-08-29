@@ -31,3 +31,4 @@ function newCategory(req, res) {
         });
     })
 }
+
