@@ -7,8 +7,8 @@
 ## ScreenShot
 
 ![Screenshot](image/img1.png)
-![Screenshot](image/img2.png)
 ![Screenshot](image/img3.png)
+![Screenshot](image/img2.png)
 
 ## Technologies Used
 
