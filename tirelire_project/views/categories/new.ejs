@@ -1,17 +1,52 @@
 <%- include('../partials/header') %>
+<section class="pricing py-5">
+  <div class="container">
+    <div class="row">
+      <!-------Header------->
+      <div class="col-lg-6">
+          <div class="card-body">
+              <form action="/categories" method="POST">
+                <div class="card-details">
+                  <h5 class="title_details">Name: </h5>
+                  <input id="input_category" type="text" id="inputText" class="form-control" name="name">
+                </div>
+              </form>
+              <button type="submit" class="btn btn-info">Add Category</button>
+          </div> 
+      </div>
+          <!-----Table-->
+      <div class="col-lg-6">
+        <div class="card-body">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">All categories</th>
+              </tr>
+            </thead>
+        
+            <tbody>
+              <% categories.forEach(function(c) { %>
+              <tr>
+                  <th scope="row"><%= c.name %></td>
+                <% }) %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+          
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>Please first ensure that the Categiry is not in the dropdown
-  <select>
-    <% categories.forEach(function(c) { %>
-      <option><%= c.name %></option>
-    <% }) %>
-  </select>
-</p>
-<form id="add-category-form" action="/categories" method="POST">
-  <label>Name:</label>
-  <input type="text" name="name">
-
-  <input type="submit" value="Add category">
-</form>
 
 <%- include('../partials/footer') %>
+
+
+
+
+
+
+
+

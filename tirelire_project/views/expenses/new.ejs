@@ -1,23 +1,49 @@
 <%- include('../partials/header') %>
+<section>
+    <div>
+        <p class="title">Add Expense</p>
+    </div>
+    <hr>
+</section>
 
-<form id="new-form" action="/expenses" method="POST">
-  <div id="header">
-    <h1>Add Expense</h1>
-  </div>
-  <label>Description:</label>
-  <input type="text" name="name">
-  <label>Date:</label>
-  <input type="text"  pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" placeholder="yyyy-mm-dd" name="date">
-  <label>Amount:</label>
-  <input type="number" name="amount">
+<section class="show-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-expense flex-row my-5">
+                    
+                    <div class="card-body">
+                        <form action="/expenses" method="POST" class="form-signin">
+                          <div class="form-label-group">
+                            <input type="text" id="inputText" class="form-control" placeholder="Description" name="name">
+                            <label for="inputText">Description: </label>
+                          </div>
 
-  <input class="add" type="submit" value="Add Expense">
-</form>
+                          <div class="form-label-group">
+                            <input type="text" id="inputText" class="form-control" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" placeholder="yyyy-mm-dd" name="date">
+                            <label for="inputText">Date: </label>
+                          </div>
 
-<form action="/expenses">
-  <input class="close" type="submit" value="Close">
-</form>
+                          <div class="form-label-group">
+                            <input type="number" id="inputText" class="form-control" placeholder="Amount" name="amount">
+                            <label for="inputText">Amount: </label>
+                          </div>
 
+                          <button type="submit" class="btn btn-info">Save</button>
+                        </form>
+                        
+                        <hr>
 
-
+                        <form action="/expenses">
+                            <button type="submit" class="btn btn-outline-info btn-lg btn-block">Close</button>
+                        </form>
+                    </div>
+                    <div class="card-img-right d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
+                    </div>
+                </div>
+            </div>  
+        </div> 
+    </div>
+</section>
 <%- include('../partials/footer') %>

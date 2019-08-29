@@ -55,10 +55,10 @@ header .overlay {
 }
 /*---------HOME PAGE-------------*/
 /*---------Title-----------*/
-#title:first-letter{
+.title:first-letter{
     text-transform: uppercase;
 }
-#title {
+.title {
 color: #424242;
 font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
 letter-spacing:0.1em;
@@ -108,239 +108,149 @@ section.pricing {
     font-size: 0.8rem;
 }
 
-/*---------LOGIN PAGE-------------*/
-
-/* a {
-    text-decoration: none;
-    margin-top: 8px;
-}
-
-img {
-    height: 30px;
-    margin-right: 10px;
-}
-
-
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgb(196, 193, 193);
+/*---------DETAIL PAGE-------------*/
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: .75rem;
 }
   
-li a {
-    float: right;
-    text-decoration: none;
-    margin: 10px;
-    color: white;
+section.show-page {
+    background: #6d7379;
+    background: linear-gradient(to right, #6d7379, #33AEFF);
+}
+  
+.card-signin {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+  
+.card-signin .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+  
+.card-signin .card-img-left {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('https://image.freepik.com/free-photo/female-tourists-spread-their-arms-held-their-wings_1150-7462.jpg');
+    background-size: cover;
+}
+  
+.card-signin .card-body {
+    padding: 1rem;
 }
 
-
-p {
-    color: white;
-    margin-left: 20px;
+.title_details {
+    color: #424242;
+    font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+    letter-spacing:0.1em;
+    font-size: 14pt;
+    font-variant: small-caps;
 }
 
-li a:hover:not(.active) {
-    color: #111;
-}
-
-.active {
-    color: black;
-}
-
-.balance {
-    background-color: white;
-    font-size: 40px;
-    box-shadow: 5px 5px rgb(128, 126, 126);
-    border-radius: 10px;
-    margin: auto;
-    width: 400px;
-    margin-top: 50px;
-    font-size: 60px;
-}
-
-section{
-    display: flex;
-    margin: auto 90px;
-    align-content:space-between;
-    
-} 
-
-table {
-    border-collapse: collapse;
-}
-
-.list {
-    background-color: gray;
-    padding-bottom: 16px;
+.details_value {
+    margin-left: 120px;
     border-bottom: 1px solid gray;
 }
-
-.total {
-    background-color: white;
-    border-radius: 5px;
-    font-size: 20px;
-}
-
-.tables { 
-    background-color: white;
-    width: 500px;
-    border: 10px solid gray;
-    border-radius: 4px;
-    margin: auto;
-    box-shadow: 5px 5px 5px 5px white;
-}
-
-table thead th {
-    padding: 16px;
-    font-size: 20px;
-}
   
-table td {
-    /* border-bottom: 1px solid #424748; */
-    /* text-align: center;
-    padding: 10px;   
-}
-
-tbody td{
-    border-bottom: 1px solid lightgray;
-}
-
-td a {
-    background: url("images/add.png");
-}
-
-.details{
-    background: url("images/details.png");
-}
-
-h6 {
-    text-align: center;
-    font-size: 15px;
-    margin-top: 10px;
-}  */
-
-/*---------ADD EXPENSE/INCOME-------------*/
-/* #new-form {
-    background-color: white;
-    display: grid;
-    border-radius: 3px;
-    justify-content: center;
-    width: 450px;
-    margin: 50px auto;
-    padding: 30px 10px 50px 10px;
-}
-
-input {
-    width: 300px;
-    height: 30px;
-    border-radius: 3px;
-    border: 1px solid lightgray;
-    margin: 10px 20px 10px 20px;
-    font-size: 12px;
-    
-}
-
-label {
-    margin: 10px 20px 10px 20px;
-}
-
-.add {
-    width: 90px;
-    margin: 50px 0px 10px 230px;
-    background-color: gray;
-    color: white;
-}
-
-#plus_link {
-    margin-top:-1px;
-} */
-
-/*---------INCOME DETAILS-------------*/
-/* #show-page {
-    background-color: white;
-    display: grid;
-    border: 1px solid gray;
-    border-radius: 3px;
-    justify-content: center;
-    width: 500px;
-    margin: 50px auto;
-    padding: 30px 10px 50px 10px;
-}
-
-.field {
-    width: 300px;
-    height: 30px;
-    border-radius: 3px;
-    border: 1px solid lightgray;
-    margin: 10px 20px 10px 20px;
-    font-size: 13px;
-    padding: 10px;
-}
-
-#comment_field {
-    font-size: 15px;
-    border: 2px solid black;
-    width: 300px;
-    height: 30px;
+.form-signin {
+    width: 100%;
 }
 
 textarea {
-    width: 370px;
+    width: 400px;
     height: 100px;
-    border: 1px solid lightgray;
-    border-radius: 3px;
-    margin: 30px 5px 5px 30px;
+    margin-left: 40px;
+    border-radius: 4px;
 }
 
-.addC {
-    width: 90px;
-    margin: 10px 12px 20px 300px;
-    background-color: gray;
-    color: white;
+.selectpicker{
+    width: 140px;
+    height: 38px;
+    margin: 30px;
+}
+ /*--------------Expense detail---------*/
+
+.card-signup {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+  
+.card-signup .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+  
+.card-signup .card-img-left {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('https://image.freepik.com/free-photo/young-woman-blue-jacket-with-her-arms-crossed-standing-against-pink-backdrop_23-2148178138.jpg');
+    background-size: cover;
+}
+  
+.card-signup .card-body {
+    padding: 1rem;
 }
 
-#line {
-    margin: 20px 0px 10px 0px;
-    border: 2px solid lightgray;
-} */
+/*--------------New Income---------*/
 
-/*---------EXPENSE DETAILS-------------*/
-/* #header {
-    margin: 0px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid gray;
+.card-income {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+  
+.card-income .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+  
+.card-income .card-img-right {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('https://image.freepik.com/free-photo/portrait-cheerful-young-woman_23-2148066871.jpg');
+    background-size: cover;
+}
+  
+.card-income .card-body {
+    padding: 1rem;
 }
 
-#category-display{
-    display: flex;
+
+/*--------------New Expense---------*/
+
+.card-expense {
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+  
+.card-expense .card-title {
+    margin-bottom: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+  
+.card-expense .card-img-right {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('https://image.freepik.com/free-photo/happy-beautiful-young-woman-pointing-something-hand_23-2148055870.jpg');
+    background-size: cover;
+}
+  
+.card-expense .card-body {
+    padding: 1rem;
 }
 
-select {
-    width: 200px;
-    height: 30px;
-    border-radius: 3px;
-    border: 1px solid lightgray;
-    margin: 10px 20px 10px 20px;
-    font-size: 13px;
-    padding: 10px;
+#input_category{
+    margin-bottom: 10px;
 }
-
-.addS {
-    width: 90px;
-    margin: 10px 12px 20px;
-    background-color: gray;
-    color: white;
-} */
-
-/*---------CLOSE------------*/
-/* .close {
-    float: right;
-    width: 90px;
-    margin: auto 450px;
-    background-color: white;
-    color: gray;
-} */ 

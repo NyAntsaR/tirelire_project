@@ -1,58 +1,86 @@
 <%- include('../partials/header') %>
-<!----------------------------ADD NEW EXPENSE-------------------->
-  <section id="show-page">
-    <div id="header">
-      <h1>Expense Details</h1>
+<section>
+    <div>
+        <p class="title">Expense Detail</p>
     </div>
-
-    <label>Name: </label>
-    <div class="field"><%= expense.name %></div>
-    <label>Date: </label> 
-    <div class="field"><%= expense.date %></div>
-    <label>Amount: </label> 
-    <div class="field"> $ <%= expense.amount %></div>
-
-    <label>Category: </label>
-    <div class="field"><%- expense.category.map(c => `${c.name}`).join('') %></div>
-
-<!----------------------------ADD CATEGORY-------------------->
-    <form id="category-display" action="/expenses/<%= expense._id%>/categories" method="POST">
-        <select name="categoryId">
-            <%- categories.map(c => `<option value="${c._id}">${c.name}</option>`).join('') %>
-        </select>
-        <input class="addS" type="submit" value="Add Category">
-    </form>
-    
-
-<!----------------------------ADD COMMENT-------------------->
-  <label>Notes: </label>
-  <% if (expense.comments.length) { %>
-    <% expense.comments.forEach(function(c) { %>
-      <div class="field"><%= c.content %></div>
-    <% }); %>
-  <% } %>
-
-  <div id="line"></div>
-  <br>
-
-  <form method="POST"
-    action="/expenses/<%= expense._id %>/comments">
-    <label>Add Notes:</label>
-    <textarea name="content"></textarea>
-
-    <input class="addC" type="submit" value="Save">
-  </form>
-
-<!----------------------------DELETE-------------------->
-  <!-- <form action="/expenses/<%= expense._id %>?_method=DELETE" method="POST" class="delete-content">
-    <input class="addC" type="submit" value="Delete">
-  </form> -->
-
-<!----------------------------CLOSE--------------------> 
-  <form action="/expenses">
-    <input class="addC"  style="float: right" type="submit" value="Close">
-  </form>
-  
+    <hr>
 </section>
+<!--------------------------ADD NEW EXPENSE------------------>
+<section class="show-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-signup flex-row my-5">
+                    <div class="card-img-left d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
+                    </div>
+                    <div class="card-body">
+                        <form class="form-signin">
+                            <div class="card-details">
+                                <h5 class="title_details">Description: </h5>
+                                <h6 class="details_value"><%= expense.name %></h6>
+                            </div>
+
+                            <div class="card-details">
+                                <h5 class="title_details">Date: </h5>
+                                <h6 class="details_value"><%= expense.date %></h6>
+                            </div>
+
+                            <div class="card-details">
+                                <h5 class="title_details">Amount: </h5>
+                                <h6 class="details_value"> $ <%= expense.amount %></h6>
+                            </div>
+                        </form>
+
+                             <!----------------------------ADD CATEGORY-------------------->
+
+                            <div class="card-details">
+                                <h5 class="title_details">Category: </h5>
+                                <h6 class="details_value"> <%- expense.category.map(c => `${c.name}`).join('') %></h6>
+                            </div>
+
+                            <form method="POST" action="/expenses/<%= expense._id%>/categories" >
+                              <select class="selectpicker" name="categoryId">
+                                <%- categories.map(c => `<option value="${c._id}">${c.name}</option>`).join('') %>
+                              </select>
+                              <button type="submit" class="btn btn-info">Add Category</button>
+                            </form>
+
+                            <div class="card-details">
+                                <h5 class="title_details">Notes: </h5>
+                                <% if (expense.comments.length) { %>
+                                    <% expense.comments.forEach(function(exp) { %>
+                                        <h6 class="details_value"><%= exp.content %></h6>
+                                    <% }); %>
+                                <% } %>
+                            </div>
+                        </form>
+
+                        <!----------------------------ADD COMMENT-------------------->
+                        <hr> 
+                        <form method="POST" action="/expenses/<%= expense._id %>/comments">
+                            <div class="card-details">
+                                <h5 class="title_details">Add Notes: </h5>
+                                <textarea name="content"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-info">Save</button>
+                        </form>
+                        <hr>
+
+                        <form action="/expenses">
+                            <button type="submit" class="btn btn-outline-info btn-lg btn-block">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+        </div> 
+    </div>
+</section>
+
+
+
+
+
+
 
 <%- include('../partials/footer') %>

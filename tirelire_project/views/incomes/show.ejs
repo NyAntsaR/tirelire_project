@@ -1,37 +1,66 @@
 <%- include('../partials/header') %>
+<section>
+        <div>
+            <p class="title">Income Detail</p>
+        </div>
+        <hr>
+</section>
 
-    <section id="show-page">
-        <h1 id="title">Incomes Details</h1>
-        <label>Name:</label>
-        <div class="field"><%= income.name %></div>
-        <br>
-        <label>Date:</label>
-        <div class="field"><%= income.date %></div>
-        <br>
-        <label>Amount:</label>
-        <div class="field"> $ <%= income.amount %></div>
+<section class="show-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-signin flex-row my-5">
+                    <div class="card-img-left d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
+                    </div>
+                    <div class="card-body">
+                        <form class="form-signin">
+                            <div class="card-details">
+                                <h5 class="title_details">Description: </h5>
+                                <h6 class="details_value"><%= income.name %></h6>
+                            </div>
+
+                            <div class="card-details">
+                                <h5 class="title_details">Date: </h5>
+                                <h6 class="details_value"><%= income.date %></h6>
+                            </div>
+
+                            <div class="card-details">
+                                <h5 class="title_details">Amount: </h5>
+                                <h6 class="details_value"> $ <%= income.amount %></h6>
+                            </div>
+                            <div class="card-details">
+                                <h5 class="title_details">Notes: </h5>
+                                <% if (income.icomments.length) { %>
+                                    <% income.icomments.forEach(function(ic) { %>
+                                        <h6 class="details_value"><%= ic.content %></h6>
+                                    <% }); %>
+                                <% } %>
+                            </div>
+                        </form>
+                        <!----------------------------ADD COMMENT-------------------->
+                        <hr> 
+                        <form method="POST" action="/incomes/<%= income._id %>/icomments">
+                            <div class="card-details">
+                                <h5 class="title_details">Add Notes: </h5>
+                                <textarea name="content"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-info">Save</button>
+                        </form>
+                        <hr>
+
+                        <form action="/expenses">
+                            <button type="submit" class="btn btn-outline-info btn-lg btn-block">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+        </div> 
+    </div>
+</section>
+
     
 
-    <!----------------------------ADD COMMENT-------------------->
-        <% if (income.icomments.length) { %>
-        <label>Notes</label>
-            <% income.icomments.forEach(function(ic) { %>
-                <div class="field"><%= ic.content %></div>
-            <% }); %>
-        <% } %>
-
-        <div id="line"></div>
-        <br>
-        <form method="POST" action="/incomes/<%= income._id %>/icomments">
-            <label>Add Notes:</label>
-            <div><textarea name="content"></textarea></div>
-
-            <input class="addC" type="submit" value="Save">
-        </form>
-
-        <form action="/expenses">
-            <input class="addC"  style="float: right" type="submit" value="Close">
-        </form>
-    </section>
 
 <%- include('../partials/footer') %>
