@@ -24,5 +24,7 @@
 
 Link of the app [here](https://tirelire-sei.herokuapp.com/users)
 
+## Future implementation
 
-
+- Group all the expenses by category
+- Pie chart
