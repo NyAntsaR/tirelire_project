@@ -19,6 +19,7 @@
 - `Bootstrap`
 - `Jquery`
 - `HTML`
+-`JavaScript`
 
 ## Link
 
