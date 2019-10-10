@@ -23,7 +23,7 @@
 
 ## Link
 
-Link of the app [here](https://tirelire-sei.herokuapp.com/users)
+Link of the app [here](https://tirelire1.herokuapp.com/users)
 
 ## Future implementations
 
